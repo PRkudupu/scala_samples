@@ -34,3 +34,19 @@ val dp_df2=emp_un.toDF()
 val un_DF=dp_df1.unionAll(dp_df2)
 display(un_DF)
 
+
+//Connect to azure blob and try to load the data
+val containername ="sample"
+val storageaccountname = "kudupu"
+val storageaccountaccesskey = "QGh5ClJ72a2wSE320mAUb7tXUel05UFUR7cxIWAY0udIrNnGSqqr6q0CyT0J5c3FxSzIGRQb1Uf6BXGY0+RY8Q=="
+
+val filelocation = "https://kudupu.blob.core.windows.net/sample/C2ImportCalEventSample.csv"
+val file_type = "csv"
+
+
+spark.conf.set(
+  "fs.azure.account.key."+storage_account_name+".blob.core.windows.net",
+  storage_account_access_key)
+
+
+val sdf = spark.read.csv("wasbs://containername@storageaccountname.blob.core.windows.net/filelocation")
