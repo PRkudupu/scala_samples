@@ -1,0 +1,26 @@
+//Function name (parameter name1 paramter name1,)
+def add(a:Int,b:Int):Int ={
+  return a+b
+}
+addInt(10,20)
+
+//use of If else
+def add(f:Int,s:Int):Int={
+  if(f==1){
+    println("First")
+  }
+  else
+    println("second")
+  return f+s
+}
+add(2,5)
+
+// For loop
+def forloop(first:Int,second:Int):Int ={
+  for( w <- first until second) 
+        { 
+            println(w); 
+        } 
+ return 0
+}
+forloop(10,20)
