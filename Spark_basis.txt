@@ -38,7 +38,7 @@ display(un_DF)
 //Connect to azure blob and try to load the data
 val containername ="sample"
 val storageaccountname = "kudupu"
-val storageaccountaccesskey = "QGh5ClJ72a2wSE320mAUb7tXUel05UFUR7cxIWAY0udIrNnGSqqr6q0CyT0J5c3FxSzIGRQb1Uf6BXGY0+RY8Q=="
+val storageaccountaccesskey = "<keys>"
 
 val filelocation = "https://kudupu.blob.core.windows.net/sample/C2ImportCalEventSample.csv"
 val file_type = "csv"
@@ -50,3 +50,21 @@ spark.conf.set(
 
 
 val sdf = spark.read.csv("wasbs://containername@storageaccountname.blob.core.windows.net/filelocation")
+
+
+// LOOK AT THE FILE SYSTEM
+display(dbutils.fs.ls("/databricks-datasets/samples/docs/"))
+
+// TRANSFORMATION
+val df =spark.read.text("/databricks-datasets/samples/docs/")
+
+//ACTION
+df.count()
+df.take(5)
+
+//LIMIT THE CONTENTS OF THE RDD
+val lm =df.limit(2)
+lm.show()
+
+//FILTER
+
