@@ -1,26 +1,52 @@
 //Function name (parameter name1 paramter name1,)
-def add(a:Int,b:Int):Int ={
-  return a+b
-}
-addInt(10,20)
+	def add(a:Int,b:Int):Int ={
+	  return a+b
+	}
+	addInt(10,20)
 
 //use of If else
-def add(f:Int,s:Int):Int={
-  if(f==1){
-    println("First")
-  }
-  else
-    println("second")
-  return f+s
-}
-add(2,5)
+	def add(f:Int,s:Int):Int={
+	  if(f==1){
+		println("First")
+	  }
+	  else
+		println("second")
+	  return f+s
+	}
+	add(2,5)
 
 // For loop
-def forloop(first:Int,second:Int):Int ={
-  for( w <- first until second) 
-        { 
-            println(w); 
-        } 
- return 0
-}
-forloop(10,20)
+	def forloop(first:Int,second:Int):Int ={
+	  for( w <- first until second) 
+			{ 
+				println(w); 
+			} 
+	 return 0
+	}
+	forloop(10,20)
+
+//STRING INTERPOLATION by using "s" followed by string variables after $
+	def string_interplocation(name:String):String ={
+	  s"Hello $name!"
+	}
+string_interplocation("test")
+
+//VOID FUNCTIONS. drop the equals to return void
+A function, that does not return anything can return a Unit that is equivalent to void in Java
+	def void_fn(a:String)Unit:String{
+		s"HellO$name!"
+	}
+
+//OBJECT 
+	This is used instead of class to create a singleton class. Only one instance is created.
+	
+//RETURN
+	Every statement is scala is a expression.No need to for return
+
+
+//MULTIPLE PARAMETER LISTS
+	Function can have more than one parameter list
+	Extremely useful when last parameter is an implicit or another function
+	
+	def 
+
