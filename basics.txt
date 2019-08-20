@@ -48,5 +48,8 @@ A function, that does not return anything can return a Unit that is equivalent t
 	Function can have more than one parameter list
 	Extremely useful when last parameter is an implicit or another function
 	
-	def 
+	def  hello(name:String)(myself:String) ={
+	s"HellO $name! second is $myself"
+	}
+	val result =hello("First_Paramter")("Second_Parameter")
 
