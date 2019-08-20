@@ -1,0 +1,7 @@
+SCALA COLLECTION
+
+	//List of strings
+	val myList =List("one","two","three","four")
+   // Map  function iterates through the list
+   // The function what we have here is an anonymous function
+	val mapped =myList.map( s => s.toUpperCase())

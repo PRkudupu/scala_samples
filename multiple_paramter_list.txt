@@ -1,0 +1,14 @@
+//MULTIPLE PARAMETER LISTS
+	Function can have more than one parameter list
+	Extremely useful when last parameter is an implicit or another function
+	
+	def  hello(name:String)(whoYouAre:()=>String) ={
+	s"HellO $name! My name is $whoYouAre()"
+  }
+	def providename() ={"scala"}
+
+	val fast = hello("test")(providename)
+
+	// Here the second function is provided as anonymous function that matches the list
+	val faster = hello("test"){ () => "Anonymous"
+	}
