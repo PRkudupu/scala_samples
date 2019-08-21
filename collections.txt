@@ -10,7 +10,13 @@ USING MAP
 USING FLATMAP
 similar to map, however it is a higher order function
 It unboxes the returned results
-	val flatMap=myList.flatMap { s=>
+Note
+None: is an option type T which returns nothing
+Some: is of type T is some(s). Here it returns the string
+Option:Invaluable part of scala which allows us to control our code easier to avoid using nulls and checking for nulls
+        Option of T has 2 possible types either None or some(of that type)
+
+    val flatMap=myList.flatMap { s=>
 	val filters=List("one","four")
 	  if(filters.contains(s))
 		None
