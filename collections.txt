@@ -1,7 +1,19 @@
 SCALA COLLECTION
 
+USING MAP
 	//List of strings
 	val myList =List("one","two","three","four")
-   // Map  function iterates through the list
-   // The function what we have here is an anonymous function
+    // Map  function iterates through the list
+	// The function what we have here is an anonymous function
 	val mapped =myList.map( s => s.toUpperCase())
+	
+USING FLATMAP
+similar to map, however it is a higher order function
+It unboxes the returned results
+	val flatMap=myList.flatMap { s=>
+	val filters=List("one","four")
+	  if(filters.contains(s))
+		None
+	  else
+		Some(s)
+}
