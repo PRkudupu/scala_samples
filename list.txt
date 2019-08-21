@@ -17,5 +17,7 @@
                         List(2,0,0)
                             )
 	println(s"two dm$dim!")
-	
-
+//LIST OPERATIONS	
+	val myList:List[String] =List("first","second","third","fourth")
+	println("Head",myList.head)
+	println("tail",myList.tail)
