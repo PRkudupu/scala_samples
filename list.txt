@@ -1,4 +1,21 @@
 //LIST OF STRINGS
-val listString:List[String] =List("first","second","third")
-println(s"list of strings : $listString!")
+	val listString:List[String] =List("first","second","third")
+	println(s"list of strings : $listString!")
+
+//LIST OF  INTEGERS
+	val listInt:List[Int]=List(1,2,3)
+	println(s"list of integers : $listInt!")
+
+//EMPTY LIST
+	val listEmpty:List[Nothing] =List()
+	println(s"Empty list$listEmpty!")
+//two dimensional list
+
+	val dim:List[List[Int]]=List(
+                        List(1,0,0),
+                        List(2,0,0),
+                        List(2,0,0)
+                            )
+	println(s"two dm$dim!")
+	
 
