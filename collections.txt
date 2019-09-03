@@ -23,3 +23,21 @@ Option:Invaluable part of scala which allows us to control our code easier to av
 	  else
 		Some(s)
 }
+
+case class Item(name:String,number:Int)
+//using collection api we can map.For each element we would apply we would create a new item
+	val items = (0 to 100).map(i=> Item(s"name-$i",i))
+	println(items)
+    
+	output
+	items: scala.collection.immutable.IndexedSeq[Item] = Vector(Item(name-0,0), Item(name-1,1), Item(name-2,2), 
+	Item(name-3,3), Item(name-4,4), Item(name-5,5), Item(name-6,6), Item(name-7,7), Item(name-8,8), Item(name-9,9), 
+	Item(name-10,10), Item(name-11,11), Item(name-12,12), Item(name-13,13), Item(name-14,14), Item(name-15,15), 
+	
+	%sql
+//Create an RDD
+	val itemRDD=sc.parallelize(items)
+//Create dataframe
+	val itemDF=itemRDD.toDF
+//Create temptable
+	itemDF.registerTempTable("items_v")
