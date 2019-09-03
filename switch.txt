@@ -1,0 +1,14 @@
+CASE STATMENT 
+	specified using match
+
+val activityByProduct =keyedByProduct
+      //Multiline lambda has to be replaced from paranthesis to curly
+      //Find the type of activity
+      .mapValues{
+        a => a.action match {
+            //In case of purchase, return a tuple of 3 values(1,0,0)
+          case "purchase" =>(1,0,0)
+          case "add_to_cart" =>(0,1,0)
+          case "page_view" =>(0,0,1)
+        }
+      }
