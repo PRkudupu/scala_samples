@@ -68,3 +68,8 @@ lm.show()
 
 //FILTER
 
+//WITH COLUMN
+.withColumn("rolling_range",lit(range24))
+
+//CHECK FOR ISNULL
+sourceDF.withColumn("is_person_name_null",col("person_name").isNull).show()
