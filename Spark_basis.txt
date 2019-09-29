@@ -73,3 +73,29 @@ lm.show()
 
 //CHECK FOR ISNULL
 sourceDF.withColumn("is_person_name_null",col("person_name").isNull).show()
+
+//REPLACE NULL VALUES
+.withColumn("primary_channel", when(col("primary_channel").isNull, "NONE").otherwise(col("primary_channel")))
+
+// CREATE SPARKSESSION
+
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+val sparkSession=SparkSession
+val spark = SparkSession
+  .builder()
+  .appName("Spark SQL basic example")
+  .config("spark.some.config.option", "some-value")
+  .getOrCreate()
+
+omniTransactions.createOrReplaceTempView("omni")
+val result= spark.sql(""" select *
+                    from omni""") 
+
+result.show()
+
+//CONDITIONAL QUERY GENERATION
+val customerLoyaltyFiletered=sparkSession.sql("""select * from customer_loyalty_details_t """ + historicalFilter)
+
+
+//CONVER TO UNIX TIMESTAMP
+ .withColumn("rpting_dt",from_unixtime(unix_timestamp(),"yyyy-MM-dd HH:mm:ss").cast("timestamp"))
