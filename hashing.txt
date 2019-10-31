@@ -1,0 +1,25 @@
+DataFrame column hashing
+
+In this section, we show some of the built-in hashing functions that Spark provides out-of-the-box. You may wonder, though, in what circumstance would you need to hash column values in a dataframe? In certain Machine Learning pipelines, there are some scenarios when you need to detect staleness in data, in order to reproduce a result set. In such a case, hashing some of your data points become very useful.
+
+ 
+
+In the simple examples below, we enrich our dataframe with the following hashing columns:
+
+Hash column: This column creates a hash values for column Donut Names. As per the Spark 2.0 API documentation, the hash() function makes use of the Murmur3 hash.
+MD5 column: This column creates MD5 hash values for column Donut Names.
+SHA-1 column: This column creates SHA-1 hash values for column Donut Names.
+SHA-2 column: This column creates SHA-2 hash values for column Donut Names. For SHA-2, you will have to specify a second parameter for the number of bits. In the example below, I have chosen 256 as the number of bits.
+
+val donuts = Seq(("plain donut", 1.50, "2018-04-17"), ("vanilla donut", 2.0, "2018-04-01"), ("glazed donut", 2.50, "2018-04-02"))
+val df = spark.createDataFrame(donuts).toDF("Donut Name", "Price", "Purchase Date")
+
+import org.apache.spark.sql.functions._
+import spark.sqlContext.implicits._
+
+df
+.withColumn("Hash", hash($"Donut Name")) // murmur3 hash as default.
+.withColumn("MD5", md5($"Donut Name"))
+.withColumn("SHA1", sha1($"Donut Name"))
+.withColumn("SHA2", sha2($"Donut Name", 256)) // 256 is the number of bits
+.show()
