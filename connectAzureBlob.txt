@@ -1,0 +1,3 @@
+READ PARQUET FROM THE BLOB STORAGE
+val df = spark.read.parquet("wasbs://data@mtcosmuse2sephptapiisa.blob.core.windows.net/warehouse/aggregated_incr.DB/rawdata_customer_loyalty_status_incr")
+ df.show()

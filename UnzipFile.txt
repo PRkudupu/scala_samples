@@ -1,0 +1,13 @@
+import java.net.URL
+import java.io.File
+import org.apache.commons.io.FileUtils
+
+FileUtils.copyURLToFile(new URL("https://resources.lendingclub.com/LoanStats3a.csv.zip"), new File("/tmp/LoanStats3a.csv.zip"))
+
+
+%sh
+unzip /tmp/LoanStats3a.csv.zip
+tail -n +2 LoanStats3a.csv > temp.csv
+rm LoanStats3a.csv
+
+dbutils.fs.mv("file:/databricks/driver/temp.csv", "dbfs:/tmp/LoanStats3a.csv")  

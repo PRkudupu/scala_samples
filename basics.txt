@@ -1,3 +1,7 @@
+//PACKAGE 
+  Namespace in scala
+//
+
 //Function name (parameter name1 paramter name1,)
 	def add(a:Int,b:Int):Int ={
 	  return a+b
