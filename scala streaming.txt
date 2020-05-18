@@ -23,3 +23,35 @@ CONVERT CASE CLASS INTO SCHEMA
 	case class A(key: String, time: java.sql.Timestamp, date: java.sql.Date, decimal: java.math.BigDecimal, map: Map[String, Int], nested: Seq[Map[String, Seq[Int]]])
 	val schema = ScalaReflection.schemaFor[A].dataType.asInstanceOf[StructType]
 	schema.printTreeString
+	
+OPTION
+	Container of zero or one element of a given type.
+	An option can either be Some[T] or None object
+	
+	EX
+		val capitals = Map("France" -> "Paris", "Japan" -> "Tokyo")
+      
+		println("capitals.get( \"France\" ) : " +  capitals.get( "France" ))
+		println("capitals.get( \"India\" ) : " +  capitals.get( "India" ))
+	
+	OUTPUT
+		capitals.get( "France" ) : Some(Paris)
+		capitals.get( "India" ) : None
+		
+	Note:
+		Most common way to take optional values apart is through pattern match
+		object Demo {
+		   def main(args: Array[String]) {
+			  val capitals = Map("France" -> "Paris", "Japan" -> "Tokyo")
+			  
+			  println("show(capitals.get( \"Japan\")) : " + show(capitals.get( "Japan")) )
+			  println("show(capitals.get( \"India\")) : " + show(capitals.get( "India")) )
+		   }
+		   
+		   def show(x: Option[String]) = x match {
+			  case Some(s) => s
+			  case None => "?"
+		   }
+		}
+		
+		
